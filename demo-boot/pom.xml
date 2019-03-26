@@ -96,8 +96,39 @@
                         <include>**/*</include>
                     </includes>
                 </resource>
-            </resources>
+                <!--<resource>
+                   <directory>src/main/resources</directory>
+                   <excludes>
+                       <exclude>application*.properties</exclude>
+                   </excludes>
+               </resource>-->
+            <!--<resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>      &lt;!&ndash; 根据打包时激活的profile来包括对应的配置文件 &ndash;&gt;
+                    <include>application.properties</include>
+                    <include>application-${profileActive}.properties</include>
+                </includes>
+            </resource>-->
+        </resources>
 
     </build>
-
+    <!-- 打包时  -P id 可以决定 把哪个 配置文件打包 dev ，prod 则在配置文件内定义的唯一标志-->
+    <!--<profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <profileActive>dev</profileActive>
+            </properties>
+        </profile>
+            <profile>
+                <id>prod</id>
+                <properties>
+                    <profileActive>prod</profileActive>
+                </properties>
+        </profile>
+    </profiles>-->
 </project>

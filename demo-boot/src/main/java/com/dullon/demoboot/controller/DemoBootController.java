@@ -28,6 +28,7 @@ public class DemoBootController {
     Logger logger = LogManager.getLogger(this.getClass().getName());
 
     @RequestMapping("/hello")
+    @ResponseBody
     public String hello(){
 
         return "Hello World!";

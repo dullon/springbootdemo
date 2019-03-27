@@ -12,6 +12,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.HttpStatus;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
@@ -19,6 +20,8 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.context.WebApplicationContext;
 
 import javax.annotation.Resource;
@@ -27,7 +30,7 @@ import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = DemoBootApplication.class)
-@WebAppConfiguration(value = "templates")
+@WebAppConfiguration//(value = "templates")
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class DemoBootControllerTest {
 
@@ -64,9 +67,18 @@ public class DemoBootControllerTest {
 
     }
 
-    @Test
+    /*@Test(expected = HttpClientErrorException.class)
     public void readerBooks() {
-    }
+        try {
+            RestTemplate restTemplate = new RestTemplate();
+            restTemplate.getForObject("http://localhost:8080/test/abc",String.class);
+            fail("Should result in HTTP 404");
+        }catch (HttpClientErrorException he){
+            assertEquals(HttpStatus.NO_CONTENT,he.getStatusCode());
+            throw he;
+        }
+
+    }*/
 
     @Test
     public void addToReadingList() {

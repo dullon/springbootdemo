@@ -14,6 +14,7 @@
     <name>demo-boot</name>
     <description>Spring Boot Demo</description>
 
+    <packaging>war</packaging>
     <properties>
         <java.version>1.8</java.version>
     </properties>

@@ -4,7 +4,6 @@
 <configuration>
 
 
-
     <!-- 配置mybatis的缓存，延迟加载等等一系列属性 -->
     <settings>
 
@@ -53,7 +52,6 @@
         <setting name="aggressiveLazyLoading" value="false"/>
 
     </settings>
-
 
 
 </configuration>

@@ -1,17 +1,17 @@
 body {
     background: #cccccc;
-    font-family: Arial,helvetica,sans-serif;
+    font-family: Arial, helvetica, sans-serif;
 }
 
-.bookHeadline{
+.bookHeadline {
     font-size: 12pt;
     font-weight: bold;
 }
 
-.bookDescription{
+.bookDescription {
     font-size: 10pt;
 }
 
-label{
+label {
     font-weight: bold;
 }

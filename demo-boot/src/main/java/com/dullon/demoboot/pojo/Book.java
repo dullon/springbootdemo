@@ -1,8 +1,6 @@
 package com.dullon.demoboot.pojo;
 
 
-
-
 /**
  * 实体类 book @Entity 声明 它是JPA 实体类
  */

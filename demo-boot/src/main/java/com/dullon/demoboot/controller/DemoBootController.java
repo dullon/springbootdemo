@@ -24,28 +24,29 @@ import java.util.List;
 public class DemoBootController {
 
     @Resource
-    private DemoBootRepository dbr ;
+    private DemoBootRepository dbr;
 
     Logger logger = LogManager.getLogger(this.getClass().getName());
 
     @RequestMapping("/hello")
     @ResponseBody
-    public String hello(){
+    public String hello() {
 
         return "Hello World!";
     }
-    @RequestMapping(value = "/{reader}",method = RequestMethod.GET)
-    public String readerBooks(@PathVariable("reader") String reader , Model model){
+
+    @RequestMapping(value = "/{reader}", method = RequestMethod.GET)
+    public String readerBooks(@PathVariable("reader") String reader, Model model) {
 
         List<Book> readerList = dbr.findByReader(reader);
         if (readerList != null) {
-            model.addAttribute("readerList",readerList);
+            model.addAttribute("readerList", readerList);
         }
         return "demo";
     }
 
-    @RequestMapping(value = "/{reader}",method = RequestMethod.POST)
-    public String addToReadingList(@PathVariable("reader") String reader, Book book){
+    @RequestMapping(value = "/{reader}", method = RequestMethod.POST)
+    public String addToReadingList(@PathVariable("reader") String reader, Book book) {
         book.setReader(reader);
         dbr.save(book);
         return "redirect:/test/{reader}";

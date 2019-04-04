@@ -7,12 +7,12 @@
 </head>
 <body>
 <h2>Demo Reading List</h2>
-<div th:unless = "${#lists.isEmpty(readerList)} ">
-    <dl th:each="reader : ${readerList}" >
+<div th:unless="${#lists.isEmpty(readerList)} ">
+    <dl th:each="reader : ${readerList}">
         <dt class="bookHeadline">
-            <span th:text = "${reader.title}">Title</span>
-            <span th:text = "${reader.author}">Author</span>
-            (ISBN:<span th:text = "${reader.isbn}">Isbn</span>)
+            <span th:text="${reader.title}">Title</span>
+            <span th:text="${reader.author}">Author</span>
+            (ISBN:<span th:text="${reader.isbn}">Isbn</span>)
         </dt>
         <dd class="bookDescription">
             <span th:if="${reader.description}" th:text="${reader.description}">Description</span>
@@ -23,16 +23,16 @@
 <h3>Add a book</h3>
 <form method="post">
     <label for="title">Title:</label>
-    <input type="text" id="title" name="title" size="50" /><br/>
+    <input type="text" id="title" name="title" size="50"/><br/>
 
     <label for="author">Author:</label>
-    <input type="text" id="author" name="author" size="50" /><br/>
+    <input type="text" id="author" name="author" size="50"/><br/>
 
     <label for="isbn">Isbn:</label>
-    <input type="text" id="isbn" name="isbn" size="15" /><br/>
+    <input type="text" id="isbn" name="isbn" size="15"/><br/>
 
     <label for="description">Description:</label>
-    <textarea type="text" id="description" name="description" cols="100" rows="5" ></textarea><br/>
+    <textarea type="text" id="description" name="description" cols="100" rows="5"></textarea><br/>
 
     <input type="submit"/>
 </form>

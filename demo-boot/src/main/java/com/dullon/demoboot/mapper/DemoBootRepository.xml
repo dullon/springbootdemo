@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.dullon.demoboot.mapper.DemoBootRepository" >
-  <resultMap id="BaseResultMap" type="com.dullon.demoboot.pojo.Book" >
-    <id column="id" property="id" jdbcType="BIGINT" />
-    <result column="reader" property="reader" jdbcType="VARCHAR" />
-    <result column="isbn" property="isbn" jdbcType="VARCHAR" />
-    <result column="title" property="title" jdbcType="VARCHAR" />
-    <result column="author" property="author" jdbcType="VARCHAR" />
-    <result column="description" property="description" jdbcType="VARCHAR" />
-  </resultMap>
-  <sql id="Example_Where_Clause" >
+<mapper namespace="com.dullon.demoboot.mapper.DemoBootRepository">
+    <resultMap id="BaseResultMap" type="com.dullon.demoboot.pojo.Book">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="reader" property="reader" jdbcType="VARCHAR"/>
+        <result column="isbn" property="isbn" jdbcType="VARCHAR"/>
+        <result column="title" property="title" jdbcType="VARCHAR"/>
+        <result column="author" property="author" jdbcType="VARCHAR"/>
+        <result column="description" property="description" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
 
-  </sql>
-  <sql id="Base_Column_List" >
-    id, reader, isbn, title, author, description
-  </sql>
-  <select id="findByReader" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select
-    <include refid="Base_Column_List" />
-    from book
-    <where>
-      <if test="reader != null and reader != ''" >
-          AND reader = #{reader,jdbcType=VARCHAR}
-      </if>
-    </where>
-  </select>
+    </sql>
+    <sql id="Base_Column_List">
+        id, reader, isbn, title, author, description
+    </sql>
+    <select id="findByReader" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from book
+        <where>
+            <if test="reader != null and reader != ''">
+                AND reader = #{reader,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </select>
 
-  <!--<delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
-    delete from t_user
-    where id = #{id,jdbcType=VARCHAR}
-    <if test="distinct" >
-    distinct
-  </if>
-  </delete>-->
+    <!--<delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+      delete from t_user
+      where id = #{id,jdbcType=VARCHAR}
+      <if test="distinct" >
+      distinct
+    </if>
+    </delete>-->
 
-  <insert id="save" parameterType="com.dullon.demoboot.pojo.Book" >
-    insert into book ( reader, isbn, title, author, description)
-    values ( #{reader,jdbcType=VARCHAR}, #{isbn,jdbcType=VARCHAR},
-      #{title,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR})
-  </insert>
+    <insert id="save" parameterType="com.dullon.demoboot.pojo.Book">
+        insert into book ( reader, isbn, title, author, description)
+        values ( #{reader,jdbcType=VARCHAR}, #{isbn,jdbcType=VARCHAR},
+        #{title,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR})
+    </insert>
 </mapper>

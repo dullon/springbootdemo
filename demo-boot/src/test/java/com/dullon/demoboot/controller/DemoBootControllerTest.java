@@ -38,7 +38,7 @@ public class DemoBootControllerTest {
     Logger logger = LogManager.getLogger(module);
 
     @Resource
-    private DemoBootRepository dbr ;
+    private DemoBootRepository dbr;
 
     @Resource
     private WebApplicationContext webApplicationContext;
@@ -63,7 +63,7 @@ public class DemoBootControllerTest {
                 .andExpect(MockMvcResultMatchers.model().attributeExists("readerList"))
                 .andDo(MockMvcResultHandlers.print());
 
-                /*.andExpect(MockMvcResultMatchers.model().attribute("readerList", Matchers.is(Matchers.empty()))*/
+        /*.andExpect(MockMvcResultMatchers.model().attribute("readerList", Matchers.is(Matchers.empty()))*/
 
     }
 

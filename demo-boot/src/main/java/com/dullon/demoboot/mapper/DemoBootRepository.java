@@ -11,7 +11,7 @@ import java.util.List;
  */
 
 //@Mapper
-public interface DemoBootRepository  {
+public interface DemoBootRepository {
 
     List<Book> findByReader(@Param("reader") String reader);
 

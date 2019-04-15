@@ -5,6 +5,7 @@ import java.util.List;
 
 /**
  * 观察者模式：在此种模式中，一个目标物件管理所有相依于它的观察者物件，并且在它本身的状态改变时主动发出通知。这通常透过呼叫各观察者所提供的方法来实现。此种模式通常被用来实作事件处理系统。
+ * 观察者模式分离了观察者和被观察者二者的责任，这样让类之间各自维护自己的功能，专注于自己的功能，会提高系统的可维护性和可重用性。
  */
 public class ObservableTest {
 
@@ -28,7 +29,7 @@ class Observable {
         }
         return false;
     }
-     //添加观察者（被取消订阅）
+     //添加观察者（被取消订阅）源码：无需判定 直接返回 obs.removeElement(o);
     boolean remove(Observer o){
         if (list.contains(o)) {
             return list.remove(o);

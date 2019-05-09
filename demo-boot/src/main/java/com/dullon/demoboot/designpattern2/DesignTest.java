@@ -19,6 +19,10 @@ package com.dullon.demoboot.designpattern2;
  *                   2、使系统的复杂性增加。
  *
  *         转自左潇龙博客：https://blog.csdn.net/zuoxiaolong8810/article/details/9775069
+ *
+ *         状态模式和策略模式的区别
+ *   状态模式和策略模式有着相同的类图， 但是它们的意图不同。策略模式更加侧重于行为或算法的替换，并且可以在运行时动态的任意替换，侧重点是使用不同算法族来解决问题。而状态模式更加侧重于状态的改变影响改变行为，而行为的执行结果又会导致状态发生变化，是一个状态和行为的变化过程。策略模式需要客户端必须完全知晓所有的策略方法，才能够知道究竟哪一个策略是当前需要的。而状态模式客户端在使用的时候，可以不必关心有哪些状态，他只需要去调用环境的行为就可以了，在环境的内部维护了这些状态。
+
  */
 public class DesignTest {
     public static void main(String[] args) throws InterruptedException {
